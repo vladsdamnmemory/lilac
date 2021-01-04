@@ -28,7 +28,7 @@ Installation via `npm` will be added later
 
 ## Documentation
 
-### Flatten
+### `Flatten`
 
 Creates a new array with same values and makes it flat no matter the depth, so it contains no sub arrays. Use `flatten()`.
 
@@ -40,13 +40,13 @@ lilac([78, 13, 6, 0, 45, [34, 55, 1, [4, 18], 6]])
 // output -> [78, 13, 6, 0, 45, 34, 55, 1, 4, 18, 6]
 ```
 
-### Lilac
+### `Lilac`
 The main function. Invoke `lilac()` passing the parameter you need to transform.
 
 * Clears the cache when used without a parameter (important if memory cleaning is needed);
 * `lilac()` returns the inner object which allows to chain its methods and continue working with an output value.
 
-### LimitWordsUntil
+### `LimitWordsUntil`
 
 Cut off the extras of strings saving whole words with `limitWordsUntil()`.
 
@@ -63,7 +63,7 @@ lilac("Execute lilac() without any parameters to clear the cache")
 // output -> "Execute"
 ```
 
-### Return
+### `Return`
 
 Simply returns the value after all chained methods used before.
 
@@ -74,7 +74,7 @@ lilac("This string will not have been changed anyhow in this case. There was no 
 // output -> "This string will not have been changed anyhow in this case. There was no methods used."
 ```
 
-### SortNumArray
+### `SortNumArray`
 
 Sort a numeric array in ascending or descending order at place. Method uses
 `parseFloat()` beneath, so each value in the array will be converted to a number.
