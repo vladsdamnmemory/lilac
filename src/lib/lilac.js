@@ -1,14 +1,16 @@
 export default (() => {
     /**
-     * Powerful library for strings and arrays
-     * Lilac version 1
+     * lilac v. 1
+     * author vladsdamnmemory
      * */
     let temp = undefined, lilac = Object.create({
         /**
-         * Truncates a string to a given length saving whole words
-         * @param length A value which defines the max string length
-         * Truncates to first whole word if the @param length is less than the first word length
-         * Does not change the string if @param length is more than the original string length
+         * Cut off the extra of a string saving words that are left whole. Use limitWordsUntil().
+         *
+         * Truncates a string to a given length saving whole words;
+         * @param length A value which defines the max string length;
+         * Truncates to first whole word if the @param length is less than the first word length;
+         * Does not change the string if @param length is more than the original string length.
          */
         limitWordsUntil: (length = 0) => {
             if (typeof length !== "number") {
@@ -39,8 +41,11 @@ export default (() => {
             return lilac;
         },
         /**
-         * Does not return new created array but sorts everything in place with bubble method
-         * @param toLargerNumber A value which defines the sorting sequence
+         * Sort a numeric array in ascending or descending order at place. Method uses parseFloat() beneath, so each value in the array will be converted to a number.
+         *
+         * Does not return new created array but sorts everything at place with bubble method;
+         * @param toLargerNumber A value which defines the sorting sequence. Default - true;
+         * @param toLargerNumber may be true/false.
          */
         sortNumArray: (toLargerNumber = true) => {
             if (Array.isArray(temp)) {
@@ -79,11 +84,10 @@ export default (() => {
 
         },
         /**
-         * Creates new array and makes it flat with no sub arrays saving the order of elements
+         * Creates a new array with same values and makes it flat no matter the depth, so it contains no sub arrays. Use flatten().
          */
         flatten: () => {
             if (Array.isArray(temp)) {
-
                 temp = temp.slice();
 
                 for (let i = 0; i < temp.length;) {
@@ -101,18 +105,21 @@ export default (() => {
             return lilac;
         },
         /**
-         * Returns final value after all the rest methods of chain behind
+         * Simply returns the value after all chained methods used before.
+         * Returns the same value if no chained methods were used after lilac() call.
          */
         return: () => temp
     });
     /**
-     * Execute lilac() without any parameters if you want to clear the cache
+     * The main function. Invoke lilac() passing the parameter you need to transform.
+     *
+     * Clears the local cache when used without a parameter (important if memory cleaning is needed);
+     * lilac() returns the inner object which allows to chain its methods and continue working with an output value.
      */
     return (param = undefined) => {
         temp = param;
         return lilac;
     };
-
 })();
 
 

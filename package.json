@@ -1,8 +1,8 @@
 {
   "name": "lilac",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Best library for dealing with Strings and Arrays",
+  "main": "src/lib/lilac.js",
   "type": "module",
   "scripts": {
     "test": "node src/lib/lilac.js"

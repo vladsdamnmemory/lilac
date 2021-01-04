@@ -89,7 +89,7 @@ Sort a numeric array in ascending or descending order at place. Method uses
 
 * Does not return new created array but sorts everything at place with bubble method;
 * @param toLargerNumber A value which defines the sorting sequence. Default - true;
-* @param accepts true/false.
+* @param toLargerNumber may be true/false.
 
 ```javascript
 lilac([6, 3, 9, '5', 35])
