@@ -1,6 +1,6 @@
 # lilac
 
-Powerful library for dealing with Arrays and Strings.
+Powerful javascript library for dealing with Arrays and Strings.
 
 Call `lilac()` which is doing all the things you don't want to spend your time on.
 
@@ -8,8 +8,8 @@ Call `lilac()` which is doing all the things you don't want to spend your time o
 import lilac from "@lilac"
 
 /**
- * Lilac v. 1
- * Author vladsdamnmemory
+ * lilac v. 1
+ * author vladsdamnmemory
  * */
 
 lilac([78, 13, 6, 0, 45, [34, 55, 1, [4, 18], 6]])
@@ -26,11 +26,17 @@ lilac([78, 13, 6, 0, 45, [34, 55, 1, [4, 18], 6]])
 
 Installation via `npm` will be added later
 
+## Supplementary
+
+Lilac is being written on ES6. If you need to support old browsers versions you should use javascript compiler after all
+such as [babel.js](https://babeljs.io)
+
 ## Documentation
 
 #### `Flatten`
 
-Creates a new array with same values and makes it flat no matter the depth, so it contains no sub arrays. Use `flatten()`.
+Creates a new array with same values and makes it flat no matter the depth, so it contains no sub arrays.
+Use `flatten()`.
 
 ```javascript
 lilac([78, 13, 6, 0, 45, [34, 55, 1, [4, 18], 6]])
@@ -41,6 +47,7 @@ lilac([78, 13, 6, 0, 45, [34, 55, 1, [4, 18], 6]])
 ```
 
 #### `Lilac`
+
 The main function. Invoke `lilac()` passing the parameter you need to transform.
 
 * Clears the local cache when used without a parameter (important if memory cleaning is needed);
@@ -48,9 +55,9 @@ The main function. Invoke `lilac()` passing the parameter you need to transform.
 
 #### `LimitWordsUntil`
 
-Cut off the extras of strings saving whole words with `limitWordsUntil()`.
+Cut off the extra of a string saving words that are left whole. Use `limitWordsUntil()`.
 
-* limitWordsUntil() truncates a string to a given length saving whole words;
+* Truncates a string to a given length saving whole words;
 * @param length A value which defines the max string length;
 * Truncates to first whole word if the @param length is less than the first word length;
 * Does not change the string if @param length is more than the original string length.
@@ -65,7 +72,8 @@ lilac("Execute lilac() without any parameters to clear the cache")
 
 #### `Return`
 
-Simply returns the value after all chained methods used before.
+Simply returns the value after all chained methods used before. Returns the same value if no chained methods were used
+after `lilac()` call.
 
 ```javascript
 lilac("This string will not have been changed anyhow in this case. There was no methods used.")
