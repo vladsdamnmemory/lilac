@@ -33,7 +33,16 @@ such as [babel.js](https://babeljs.io)
 
 ## Documentation
 
-#### `Flatten`
+### `lilac()`
+
+The main function. Invoke `lilac()` passing the parameter you need to transform.
+
+* Clears the local cache when used without a parameter (important if memory cleaning is needed);
+* `lilac()` returns the inner object which allows to chain its methods and continue working with an output value.
+
+___
+
+#### `.flatten()`
 
 Creates a new array with same values and makes it flat no matter the depth, so it contains no sub arrays.
 Use `flatten()`.
@@ -46,14 +55,9 @@ lilac([78, 13, 6, 0, 45, [34, 55, 1, [4, 18], 6]])
 // output -> [78, 13, 6, 0, 45, 34, 55, 1, 4, 18, 6]
 ```
 
-#### `Lilac`
+___
 
-The main function. Invoke `lilac()` passing the parameter you need to transform.
-
-* Clears the local cache when used without a parameter (important if memory cleaning is needed);
-* `lilac()` returns the inner object which allows to chain its methods and continue working with an output value.
-
-#### `LimitWordsUntil`
+#### `.limitWordsUntil()`
 
 Cut off the extra of a string saving words that are left whole. Use `limitWordsUntil()`.
 
@@ -70,7 +74,9 @@ lilac("Execute lilac() without any parameters to clear the cache")
 // output -> "Execute"
 ```
 
-#### `Return`
+___
+
+#### `.return()`
 
 Simply returns the value after all chained methods used before. Returns the same value if no chained methods were used
 after `lilac()` call.
@@ -82,7 +88,9 @@ lilac("This string will not have been changed anyhow in this case. There was no 
 // output -> "This string will not have been changed anyhow in this case. There was no methods used."
 ```
 
-#### `SortNumArray`
+___
+
+#### `.sortNumArray()`
 
 Sort a numeric array in ascending or descending order at place. Method uses
 `parseFloat()` beneath, so each value in the array will be converted to a number.
