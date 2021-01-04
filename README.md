@@ -2,7 +2,7 @@
 
 Powerful library for dealing with Arrays and Strings.
 
-Call `lilac()` which is doing all the things you don't wanna spend your time on.
+Call `lilac()` which is doing all the things you don't want to spend your time on.
 
 ```javascript
 import lilac from "@lilac"
@@ -40,6 +40,12 @@ lilac([78, 13, 6, 0, 45, [34, 55, 1, [4, 18], 6]])
 // output -> [78, 13, 6, 0, 45, 34, 55, 1, 4, 18, 6]
 ```
 
+### Lilac
+The main function. Invoke `lilac()` passing the parameter you need to transform.
+
+* Clears the cache when used without a parameter (important if memory cleaning is needed);
+* `lilac()` returns the inner object which allows to chain its methods and continue working with an output value.
+
 ### LimitWordsUntil
 
 Cut off the extras of strings saving whole words with `limitWordsUntil()`.
@@ -57,6 +63,17 @@ lilac("Execute lilac() without any parameters to clear the cache")
 // output -> "Execute"
 ```
 
+### Return
+
+Simply returns the value after all chained methods used before.
+
+```javascript
+lilac("This string will not have been changed anyhow in this case. There was no methods used.")
+    .return();
+
+// output -> "This string will not have been changed anyhow in this case. There was no methods used."
+```
+
 ### SortNumArray
 
 Sort a numeric array in ascending or descending order at place. Method uses
@@ -68,9 +85,8 @@ Sort a numeric array in ascending or descending order at place. Method uses
 
 ```javascript
 lilac([6, 3, 9, '5', 35])
-    .flatten()
     .sortNumArray()
     .return();
 
-// output -> "Execute"
+// output -> [ 3, 5, 6, 9, 35 ]
 ```
