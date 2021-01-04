@@ -79,7 +79,7 @@ export default (() => {
 
         },
         /**
-         * Makes array flat with no sub arrays saving the order of elements
+         * Creates new array and makes it flat with no sub arrays saving the order of elements
          */
         flatten: () => {
             if (Array.isArray(temp)) {
