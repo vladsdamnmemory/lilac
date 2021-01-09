@@ -105,6 +105,38 @@ export default (() => {
             return lilac;
         },
         /**
+         * Shuffle (randomize) content of an array at place
+         * */
+        shuffle: () => {
+            if (Array.isArray(temp)) {
+                let r, c;
+                for (let [i, v] of temp.entries()) {
+                    r = Math.floor(Math.random() * temp.length);
+                    c = v;
+                    temp[i] = temp[r];
+                    temp[r] = c;
+                }
+
+            } else {
+                throw new TypeError("Gotten value is not instance of Array");
+            }
+
+            return lilac;
+        },
+        /**
+         * Staying within lilac, continue chaining everything using .extend() method
+         * @param f A function which is executed by lilac and applied to the value being processed
+         * Method must have a function as an input parameter
+         * */
+        extend: (f) => {
+            if (typeof f === 'function') {
+                f(temp);
+            } else {
+                throw new TypeError("Gotten value is not a Function");
+            }
+            return lilac;
+        },
+        /**
          * Simply returns the value after all chained methods used before.
          * Returns the same value if no chained methods were used after lilac() call.
          */

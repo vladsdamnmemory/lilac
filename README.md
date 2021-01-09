@@ -28,8 +28,8 @@ Installation via `npm` will be added later
 
 ## Supplementary
 
-Lilac is being written on ES6. If you need to support old browsers versions you should use javascript compiler after all
-such as [babel.js](https://babeljs.io)
+Lilac is mostly being written on ES6. If you need to support oldest browsers versions you should use javascript compiler
+by the end of your code processing such as [babel.js](https://babeljs.io)
 
 ## Documentation
 
@@ -41,6 +41,24 @@ The main function. Invoke `lilac()` passing the parameter you need to transform.
 * `lilac()` returns the inner object which allows to chain its methods and continue working with an output value.
 
 ___
+
+#### `.extend()`
+
+Staying within lilac, continue chaining everything using `.extend()` method.
+
+* @param f A function which is executed by lilac and applied to the value being processed
+* Method must have a function as an input parameter
+
+```javascript
+lilac([0, 2, 3, 4, 5, 6, 7, 8, 9, 1])
+    .sortNumArray(false)
+    .extend(arr => arr.push("extended"))
+    .return();
+
+// output -> [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, "extended"]
+```
+
+---
 
 #### `.flatten()`
 
@@ -89,6 +107,20 @@ lilac("This string will not have been changed anyhow in this case. There was no 
 ```
 
 ___
+
+#### `.shuffle()`
+
+Shuffle (randomize) content of an array at place.
+
+```javascript
+lilac([0, 2, 3, 4, 5, 6, 7, 8, 9, 1])
+    .shuffle()
+    .return();
+
+// output -> [9, 0, 5, 1, 2, 8, 6, 3, 4, 7]
+```
+
+---
 
 #### `.sortNumArray()`
 
