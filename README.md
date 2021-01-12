@@ -5,31 +5,36 @@ Powerful javascript library for dealing with Arrays and Strings.
 Call `lilac()` which is doing all the things you don't want to spend your time on.
 
 ```javascript
-import lilac from "@lilac"
-
-/**
- * lilac v. 1
- * author vladsdamnmemory
- * */
-
 lilac([78, 13, 6, 0, 45, [34, 55, 1, [4, 18], 6]])
     .flatten() // Make array flat so it contains no sub arrays 
     .sortNumArray() // Sort it fast
     .return(); // Return the result
 
 // output -> [0, 1, 4, 6, 6, 13, 18, 34, 45, 55, 78]
-
-
 ```
 
 ## Installation
 
-Installation via `npm` will be added later
+Installation directly from npm store will be added later.
+
+Currently, execute this command in your directory via terminal:
+
+```text
+npm i https://github.com/vladsdamnmemory/lilac.git
+```
+
+In your code import `lilac` as follows:
+
+```javascript
+import lilac from 'lilac';
+```
 
 ## Supplementary
 
 Lilac is mostly being written on ES6. If you need to support oldest browsers versions you should use javascript compiler
 by the end of your code processing such as [babel.js](https://babeljs.io)
+
+Probably you use some front-end framework, so you don't need to worry about this.
 
 ## Documentation
 
