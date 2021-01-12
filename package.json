@@ -1,13 +1,22 @@
 {
   "name": "lilac",
   "version": "1.0.0",
-  "description": "Best library for dealing with Strings and Arrays",
-  "main": "src/lib/lilac.js",
-  "type": "module",
+  "description": "Library for dealing with Arrays and Strings ",
+  "main": "index.js",
   "scripts": {
-    "test": "node src/lib/lilac.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladsdamnmemory/lilac.git"
+  },
+  "keywords": [
+    "suazdee"
+  ],
+  "author": "suazdee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vladsdamnmemory/lilac/issues"
+  },
+  "homepage": "https://github.com/vladsdamnmemory/lilac#readme"
 }
