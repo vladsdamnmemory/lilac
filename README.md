@@ -5,6 +5,10 @@ Powerful open source javascript library for dealing with Arrays and Strings.
 Call `lilac()` which is doing all the things you don't want to spend your time on.
 
 ```javascript
+// JS file
+
+import lilac from 'lilac';
+
 lilac([78, 13, 6, 0, 45, [34, 55, 1, [4, 18], 6]])
     .flatten() // Make array flat so it contains no sub arrays 
     .sortNumArray() // Sort it fast
@@ -27,6 +31,52 @@ In your code import `lilac` as follows:
 
 ```javascript
 import lilac from 'lilac';
+```
+
+## Frameworks
+
+### Vue
+
+Install as a plugin in `main.js`
+
+```javascript
+import lilac from "lilac"
+
+Vue.use({
+    install: Vue => {
+        Vue.prototype.$lilac = lilac;
+    }
+});
+```
+
+Usage as a plugin:
+
+```vue
+<!-- component code -->
+
+<script>
+
+export default {
+  name: "Task",
+  props: {
+    description: {type: [String]}
+  },
+  data() {
+    return {strLimit: 220}
+  },
+  computed: {
+    getDesc() {
+
+      return this.$lilac(this.description)
+          .limitWordsUntil(this.strLimit)
+          .return();
+
+    }
+  }
+
+}
+
+</script>
 ```
 
 ## Supplementary
@@ -66,6 +116,8 @@ lilac([0, 2, 3, 4, 5, 6, 7, 8, 9, 1])
 Use `.extend()` with provided function to change literals. Here's the example with `Vue.JS`:
 
 ```vue
+<!-- component code -->
+
 <template>
   <section>
 
@@ -75,7 +127,7 @@ Use `.extend()` with provided function to change literals. Here's the example wi
 </template>
 
 <script>
-import lilac from 'lilac';
+import lilac from 'lilac'; // local instance, also possible use but less proper
 
 export default {
   name: "Task",
@@ -85,7 +137,8 @@ export default {
   computed: {
     getDesc() {
       return lilac(this.description).extend((value, setValue) => {
-        // If description is an empty string, set its value to "No data provided"
+        // If description is an empty string, 
+        // set its value to "No data provided"
         if (!value.trim().length) {
           setValue("No data provided");
         }
