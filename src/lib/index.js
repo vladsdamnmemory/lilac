@@ -1,45 +1,40 @@
 export default (() => {
     /**
-     * lilac v. 1
-     * author vladsdamnmemory
+     * lilac v. 1.1.0
+     * author vladsdamnmemory | suazdee
      * */
     let
-        temp = undefined,
+        temp = 'lilac is ready!',
         lilac = Object.create({
             /**
              * Cut off the extra of a string saving words that are left whole. Use limitWordsUntil().
              *
              * Truncates a string to a given length saving whole words;
              * @param length A value which defines the max string length;
+             * @param addEllipsis A value which whether to display ellipsis in the end of a string;
              * Truncates to first whole word if the @param length is less than the first word length;
              * Does not change the string if @param length is more than the original string length.
              */
-            limitWordsUntil: (length = 0) => {
+            limitWordsUntil: (length = 0, addEllipsis = true) => {
                 if (typeof length !== "number") {
                     throw new TypeError('Length is not a number');
                 }
-
-                if (typeof temp === "string") {
-                    temp = temp.trim();
-
-                    let
-                        newString = temp.substring(0, length).trim(),
-                        words = newString.split(/\s+/);
-
-                    if (temp[newString.length] && temp[newString.length].match(/[\d\w(){}]/)) {
-                        words.pop();
-                        if (words.length) {
-                            temp = words.join(" ");
-                        } else {
-                            temp = temp.substring(0, temp.indexOf(" "));
-                        }
-                    } else {
-                        temp = newString;
-                    }
-
-                } else {
-                    throw new TypeError("Gotten value is not an instance of String");
+                if (typeof temp !== "string") {
+                    throw new TypeError("Input value is not an instance of String");
                 }
+                temp = temp.trim();
+                let newString = temp.substring(0, length).trim(), words = newString.split(/\s+/);
+                if (temp[newString.length] && temp[newString.length].match(/[\d\w(){}]/)) {
+                    words.pop(); // removed incomplete word
+                    if (words.length) {
+                        newString = words.join(" ");
+                    } else {
+                        let firstSpaceIndex = temp.indexOf(" ");
+                        newString = temp.substring(0, firstSpaceIndex > -1 ? firstSpaceIndex : temp.length);
+                    }
+                }
+                addEllipsis ? newString += temp[newString.length] ? "..." : "" : null;
+                temp = newString;
                 return lilac;
             },
             /**
@@ -90,7 +85,7 @@ export default (() => {
              */
             flatten: () => {
                 if (Array.isArray(temp)) {
-                    temp = temp.slice();
+                    temp = [...temp];
 
                     for (let i = 0; i < temp.length;) {
                         if (Array.isArray(temp[i])) {
@@ -128,23 +123,31 @@ export default (() => {
             /**
              * Staying within lilac, continue chaining everything using .extend() method
              * @param f A function which is executed by lilac and applied to the value being processed
-             * Method must have a function as an input parameter
+             * Method must have a function as an input parameter which gets output value and a function to reassign it inside lilac
              * */
-            extend: (f) => {
+            extend: f => {
                 if (typeof f === 'function') {
-                    f(temp);
+                    f(temp, lilac.setValue);
                 } else {
                     throw new TypeError("Gotten value is not a Function");
                 }
                 return lilac;
             },
+
+            /**
+             * Inner function used to set the inner stored lilac value
+             * */
+            setValue: value => {
+                temp = value;
+            },
+
             /**
              * Simply returns the value after all chained methods used before.
              * Returns the same value if no chained methods were used after lilac() call.
              */
             return: () => temp
         });
-    
+
     /**
      * The main function. Invoke lilac() passing the parameter you need to transform.
      *

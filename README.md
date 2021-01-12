@@ -1,6 +1,6 @@
 # lilac
 
-Powerful javascript library for dealing with Arrays and Strings.
+Powerful open source javascript library for dealing with Arrays and Strings.
 
 Call `lilac()` which is doing all the things you don't want to spend your time on.
 
@@ -52,7 +52,7 @@ ___
 Staying within lilac, continue chaining everything using `.extend()` method.
 
 * @param f A function which is executed by lilac and applied to the value being processed
-* Method must have a function as an input parameter
+* Method must have a value parameter which is output value (and a function to reassign it inside lilac if needed)
 
 ```javascript
 lilac([0, 2, 3, 4, 5, 6, 7, 8, 9, 1])
@@ -61,6 +61,40 @@ lilac([0, 2, 3, 4, 5, 6, 7, 8, 9, 1])
     .return();
 
 // output -> [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, "extended"]
+```
+
+Use `.extend()` with provided function to change literals. Here's the example with `Vue.JS`:
+
+```vue
+<template>
+  <section>
+
+    <p class="description">{{ getDesc }}</p>
+
+  </section>
+</template>
+
+<script>
+import lilac from 'lilac';
+
+export default {
+  name: "Task",
+  props: {
+    description: {type: [String]}
+  },
+  computed: {
+    getDesc() {
+      return lilac(this.description).extend((value, setValue) => {
+        // If description is an empty string, set its value to "No data provided"
+        if (!value.trim().length) {
+          setValue("No data provided");
+        }
+      }).return();
+    }
+  }
+
+}
+</script>
 ```
 
 ---
@@ -86,6 +120,7 @@ Cut off the extra of a string saving words that are left whole. Use `limitWordsU
 
 * Truncates a string to a given length saving whole words;
 * @param length A value which defines the max string length;
+* @param addEllipsis A value which whether to display ellipsis in the end of a string;
 * Truncates to first whole word if the @param length is less than the first word length;
 * Does not change the string if @param length is more than the original string length.
 
@@ -94,7 +129,7 @@ lilac("Execute lilac() without any parameters to clear the cache")
     .limitWordsUntil(12)
     .return();
 
-// output -> "Execute"
+// output -> "Execute..."
 ```
 
 ___
