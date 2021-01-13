@@ -1,4 +1,6 @@
-![lilac logo](https://www.dropbox.com/s/90r6awb7bcjlzsr/lilac_logo.png?raw=1)
+<div style="text-align: center;">
+ <img width="300" src="https://www.dropbox.com/s/zptl84ljv3wh4yc/lilac_small.png?raw=1" alt="logo">
+</div>
 
 # lilac
 
