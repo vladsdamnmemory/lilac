@@ -1,4 +1,4 @@
-![lilac logo](https://www.dropbox.com/s/90r6awb7bcjlzsr/lilac_logo.png)
+![lilac logo](https://www.dropbox.com/s/90r6awb7bcjlzsr/lilac_logo.png?raw=1)
 
 # lilac
 
