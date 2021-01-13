@@ -1,6 +1,6 @@
-<div style="text-align: center;">
+<p align="center"">
  <img width="300" src="https://www.dropbox.com/s/zptl84ljv3wh4yc/lilac_small.png?raw=1" alt="logo">
-</div>
+</p>
 
 # lilac
 
