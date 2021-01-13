@@ -1,5 +1,5 @@
-<p align="center"">
- <img width="300" src="https://www.dropbox.com/s/zptl84ljv3wh4yc/lilac_small.png?raw=1" alt="logo">
+<p align="center">
+ <img width="340" src="https://www.dropbox.com/s/zptl84ljv3wh4yc/lilac_small.png?raw=1" alt="logo">
 </p>
 
 # lilac
