@@ -2,7 +2,7 @@
  <img width="340" src="https://www.dropbox.com/s/zptl84ljv3wh4yc/lilac_small.png?raw=1" alt="logo">
 </p>
 
-# lilac
+# node-lilac (lilac)
 
 Powerful open source javascript library for dealing with Arrays and Strings.
 
@@ -23,9 +23,13 @@ lilac([78, 13, 6, 0, 45, [34, 55, 1, [4, 18], 6]])
 
 ## Installation
 
-Installation directly from npm store will be added later.
+Via `npm`
 
-Currently, execute this command in your directory via terminal:
+```text
+npm i node-lilac
+```
+
+or directly from git repository:
 
 ```text
 npm i https://github.com/vladsdamnmemory/lilac.git
