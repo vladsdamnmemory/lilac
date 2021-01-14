@@ -1,6 +1,6 @@
 export default (() => {
     /**
-     * lilac v. 1.1.0
+     * lilac v. 1.1.1
      * author vladsdamnmemory | suazdee
      * */
     let
@@ -84,19 +84,18 @@ export default (() => {
              * Creates a new array with same values and makes it flat no matter the depth, so it contains no sub arrays. Use flatten().
              */
             flatten: () => {
-                if (Array.isArray(temp)) {
-                    temp = [...temp];
-
-                    for (let i = 0; i < temp.length;) {
-                        if (Array.isArray(temp[i])) {
-                            temp.splice(i, 1, ...temp[i]);
-                        } else {
-                            i++;
-                        }
-                    }
-
-                } else {
+                if (!Array.isArray(temp)) {
                     throw new TypeError("Gotten value is not instance of Array");
+                }
+
+                temp = [...temp];
+
+                for (let i = 0; i < temp.length;) {
+                    if (Array.isArray(temp[i])) {
+                        temp.splice(i, 1, ...temp[i]);
+                    } else {
+                        i++;
+                    }
                 }
 
                 return lilac;
@@ -125,7 +124,7 @@ export default (() => {
              * @param f A function which is executed by lilac and applied to the value being processed
              * Method must have a function as an input parameter which gets output value and a function to reassign it inside lilac
              * */
-            extend: f => {
+            extend: (f: Function) => {
                 if (typeof f === 'function') {
                     f(temp, lilac.setValue);
                 } else {
@@ -133,31 +132,43 @@ export default (() => {
                 }
                 return lilac;
             },
-
             /**
-             * Inner function used to set the inner stored lilac value
+             * Inner function used to set the locally stored lilac value
              * */
             setValue: value => {
                 temp = value;
             },
-
+            /**
+             * Filters input array which now contains objects with strings matched to a @param str
+             * @param str Searched sub string
+             * @param propName Property name which value is being checked
+             * */
+            findUsageOf: (str = "", propName = "data") => {
+                if (!Array.isArray(temp)) {
+                    throw new TypeError("Input value is not instance of Array");
+                }
+                temp = temp.filter(value => value[propName] && value[propName].toString().toLowerCase().includes(str.toString().toLowerCase()));
+                return lilac;
+            },
             /**
              * Simply returns the value after all chained methods used before.
              * Returns the same value if no chained methods were used after lilac() call.
              */
             return: () => temp
         });
-
     /**
      * The main function. Invoke lilac() passing the parameter you need to transform.
      *
      * Clears the local cache when used without a parameter (important if memory cleaning is needed);
      * lilac() returns the inner object which allows to chain its methods and continue working with an output value.
      */
-    return (param = undefined) => {
-        temp = param;
+    return (parameter = undefined) => {
+        temp = parameter;
         return lilac;
     };
 })();
+
+
+
 
 

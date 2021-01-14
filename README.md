@@ -156,6 +156,49 @@ export default {
 
 ---
 
+#### `.findUsageOf()`
+
+* Filters input object[] which now contains objects with strings matched to @param str
+* @param str Searched sub string
+* @param propName Property name which value is being checked
+
+```javascript
+let quotes = [
+    {
+        id: 1,
+        data: "Clears the local cache when used without a parameter (important if memory cleaning is needed)"
+    }, {
+        id: 2,
+        data: "Returns the same value if no chained methods were used after lilac() call"
+    }, {
+        id: 3,
+        data: "Filters input array which now contains objects with strings matched to a @param str"
+    }, {
+        id: 4,
+        data: "Method must have a function as an input parameter which gets output value and a function to reassign it inside lilac"
+    }, {
+        id: 5,
+        data: "Creates a new array with same values and makes it flat no matter the depth, so it contains no sub arrays"
+    },
+];
+
+lilac(quotes)
+    .findUsageOf("inp")
+    .return();
+
+// output:
+
+// [{
+//     id: 3,
+//     data: "Filters input array which now contains objects with strings matched to a @param str"
+// }, {
+//     id: 4,
+//     data: "Method must have a function as an input parameter which gets output value and a function to reassign it inside lilac"
+// }]
+```
+
+___
+
 #### `.flatten()`
 
 Creates a new array with same values and makes it flat no matter the depth, so it contains no sub arrays.
