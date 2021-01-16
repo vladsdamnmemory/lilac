@@ -1,0 +1,23 @@
+{
+  "name": "node-lilac",
+  "version": "1.1.0",
+  "description": "Library for dealing with Arrays and Strings ",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "No test specified"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladsdamnmemory/lilac.git"
+  },
+  "keywords": [
+    "vladsdamnmemory"
+  ],
+  "author": "vladsdamnmemory",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vladsdamnmemory/lilac/issues"
+  },
+  "homepage": "https://github.com/vladsdamnmemory/lilac#readme"
+}
