@@ -2,7 +2,7 @@
  <img width="340" src="https://www.dropbox.com/s/zptl84ljv3wh4yc/lilac_small.png?raw=1" alt="logo">
 </p>
 
-# node-lilac (lilac)
+# node-lilac
 
 Powerful open source javascript library for dealing with Arrays and Strings.
 
@@ -11,7 +11,7 @@ Call `lilac()` which is doing all the things you don't want to spend your time o
 ```javascript
 // JS file
 
-import lilac from 'lilac';
+import lilac from "node-lilac"
 
 lilac([78, 13, 6, 0, 45, [34, 55, 1, [4, 18], 6]])
     .flatten() // Make array flat so it contains no sub arrays 
@@ -30,7 +30,7 @@ npm i node-lilac
 In your code import `lilac` as follows:
 
 ```javascript
-import lilac from 'lilac';
+import lilac from "node-lilac"
 ```
 
 ## Frameworks
@@ -40,7 +40,7 @@ import lilac from 'lilac';
 Install as a plugin in `main.js`
 
 ```javascript
-import lilac from "lilac"
+import lilac from "node-lilac"
 
 Vue.use({
     install: Vue => {
@@ -127,7 +127,7 @@ Use `.extend()` with provided function to change literals. Here's the example wi
 </template>
 
 <script>
-import lilac from 'lilac'; // local instance, also possible use but less proper
+import lilac from "node-lilac"; // local instance, also possible use but less proper
 
 export default {
   name: "Task",
